@@ -40,6 +40,9 @@
 # However accumulate_grad_batches is better to be avoided as long as the global batch size is large enough and training is stable.
 
 name: "FastConformer-CTC-BPE"
+# name: "model STT N test"
+
+init_from_pretrained_model: "stt_en_fastconformer_ctc_large" 
 
 model:
   sample_rate: 16000
@@ -85,7 +88,7 @@ model:
   # recommend vocab size of 128 or 256 when training on ~1k hr datasets and 1k vocab size on 10+k hr datasets
   # you may find more detail on how to train a tokenizer at: /scripts/tokenizers/process_asr_text_tokenizer.py
   tokenizer:
-    dir: /home/pdnguyen/fast_confomer_finetun/Fast-conformerASR-NVIDIA/dict_N/tokenizer_spe_bpe_v10000  # path to directory which contains either tokenizer.model (bpe) or vocab.txt (wpe)
+    dir: /home/pdnguyen/fast_confomer_finetun/Fast-conformerASR-NVIDIA/dict_N/tokenizer_spe_bpe_v1024  # path to directory which contains either tokenizer.model (bpe) or vocab.txt (wpe)
     type: bpe  # Can be either bpe (SentencePiece tokenizer) or wpe (WordPiece tokenizer)
 
   preprocessor:
@@ -115,7 +118,7 @@ model:
     _target_: nemo.collections.asr.modules.ConformerEncoder
     feat_in: ${model.preprocessor.features}
     feat_out: -1 # you may set it if you need different output size other than the default d_model
-    n_layers: 18
+    n_layers: 19
     d_model: 512
 
     # Sub-sampling params
@@ -191,7 +194,7 @@ model:
 trainer:
   devices: -1 # number of GPUs, -1 would use all available GPUs
   num_nodes: 1
-  max_epochs: 1000
+  max_epochs: 100
   max_steps: -1 # computed at runtime if not set
   val_check_interval: 1.0 # Set to 0.25 to check 4 times per epoch, or an int for number of iterations
   accelerator: auto
