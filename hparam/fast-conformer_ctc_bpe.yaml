@@ -53,7 +53,7 @@ model:
   train_ds:
     manifest_filepath: /home/pdnguyen/fast_confomer_finetun/Fast-conformerASR-NVIDIA/metadata_train/traincv.json
     sample_rate: ${model.sample_rate}
-    batch_size: 16 # you may increase batch_size if your memory allows
+    batch_size: 10 # you may increase batch_size if your memory allows
     shuffle: true
     num_workers: 8
     pin_memory: true
@@ -68,18 +68,18 @@ model:
     bucketing_batch_size: null
 
   validation_ds:
-    manifest_filepath: /home/pdnguyen/fast_confomer_finetun/Fast-conformerASR-NVIDIA/metadata_train/testcv.json
+    manifest_filepath: /home/pdnguyen/fast_confomer_finetun/Fast-conformerASR-NVIDIA/metadata_train/validcv.json
     sample_rate: ${model.sample_rate}
-    batch_size: 16 # you may increase batch_size if your memory allows
+    batch_size: 10 # you may increase batch_size if your memory allows
     shuffle: false
     use_start_end_token: false
     num_workers: 8
     pin_memory: true
 
   test_ds:
-    manifest_filepath: null
+    manifest_filepath: /home/pdnguyen/fast_confomer_finetun/Fast-conformerASR-NVIDIA/metadata_train/testcv.json
     sample_rate: ${model.sample_rate}
-    batch_size: 16 # you may increase batch_size if your memory allows
+    batch_size: 10 # you may increase batch_size if your memory allows
     shuffle: false
     use_start_end_token: false
     num_workers: 8
