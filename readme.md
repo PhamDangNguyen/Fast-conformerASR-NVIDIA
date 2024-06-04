@@ -47,3 +47,4 @@ python /home/pdnguyen/fast_confomer_finetun/Fast-conformerASR-NVIDIA/process_asr
 ![alt text](image-1.png)
 
 ## Trainning
+run ``train.sh``
