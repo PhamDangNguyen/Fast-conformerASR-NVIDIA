@@ -47,4 +47,30 @@ python /home/pdnguyen/fast_confomer_finetun/Fast-conformerASR-NVIDIA/process_asr
 ![alt text](image-1.png)
 
 ## Trainning
-run ``train.sh``
+Let's training code following step:
+
+B1: Creating the tokenizer (vocab.txt + tokenzer.model + text) run code
+```
+sh process_tokenizer.sh
+```
+
+B2: Can fill in the text into the fields of the hparam fast-conformer_ctc_bpe.yaml file following:
+```
+name: ... # Model type
+init_from_pretrained_model: ... #Load pretrain and size model
+train_ds:
+    manifest_filepath: ... # train metadata
+    batch_size: ... # batch_size bigger leads to better effect
+validation_ds:
+    manifest_filepath: ... # valid metadata
+test_ds:
+    manifest_filepath: ... # test metadata
+tokenizer:
+    dir: ... # path to directory which contains either tokenizer.model (bpe) or vocab.txt (wpe)
+    type: bpe  # Can be either bpe (SentencePiece tokenizer) or wpe (WordPiece tokenizer)
+```
+
+B3: Run training
+```
+sh train.sh
+```
