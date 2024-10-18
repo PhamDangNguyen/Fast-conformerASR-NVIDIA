@@ -17,7 +17,7 @@ for item in data:
     }
     new_data.append(new_item)
 
-# Ghi dữ liệu mới ra file JSON đầu ra   
+# Ghi dữ liệu mới ra file JSON đầu ra
 with open(output_file, "w", encoding="utf-8") as f:
     for item in new_data:
         json.dump(item, f, ensure_ascii=False)

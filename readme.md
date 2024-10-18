@@ -1,11 +1,14 @@
 # How to using pretrain fast conformer ASR model for finetune task?
+## Preprocessing data
+Access to the "asr-training/Fastconformer/notebooks_Preprocessing"
 ## Install library
  - ``cd Fast-conformerASR-NVIDIA``  
- - run in command ``pip install nemo_toolkit['all']`` to install Nemo framework
+ - run in command ``pip install nemo_toolkit['all']`` to install Nemo framewor.
+ -  run in command ``pip install -r requirements.txt`` to install the necessary libraries and dependencies.
 ## Create 2 folder metadata_tokenizer and metadata_train
 ### metadata_tokenizer
 - metadata_tokenizer for task creat vocab and tokenizer object
-- metadata_tokenizer contains json file (all infor from text - transcript after coressponding preprocess)
+- metadata_tokenizer contains json file (all information from text - transcript after coressponding preprocess)
 - ex: 
 ```
 các bác sĩ có thể chăm sóc người bệnh
@@ -74,3 +77,6 @@ B3: Run training
 ```
 sh train.sh
 ```
+# How to train KenLM and integrate the language model (LM) with an ASR model for inference? 
+[For further details, please click on the link](../Train_kenLM), good luck!
+
