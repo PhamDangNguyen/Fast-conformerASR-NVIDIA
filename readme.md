@@ -78,5 +78,5 @@ B3: Run training
 sh train.sh
 ```
 # How to train KenLM and integrate the language model (LM) with an ASR model for inference? 
-[For further details, please click on the link](../Train_kenLM), good luck!
+[For further details, please click on the link](Train_kenLM), good luck!
 
