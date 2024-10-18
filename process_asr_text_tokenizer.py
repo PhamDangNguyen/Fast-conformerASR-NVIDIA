@@ -195,8 +195,13 @@ def __build_document_from_manifests(
                 for line in in_reader:
                     item = json.loads(line)
                     text = item['text']
-
-                    out_writer.write(text + '\n')
+                    try:
+                        out_writer.write(text + '\n')
+                    except:
+                        print("---------------------------------------------------------")
+                        print(text)
+                        print("---------------------------------------------------------")
+                        break
                     out_writer.flush()
 
                     num_lines += 1

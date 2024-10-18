@@ -1,2 +1,2 @@
-infer_N/0.0227_wer.ckpt
-metadata_train/traincv.json
+Fast-conformerASR-NVIDIA/Train_kenLM/NeMo/boost_1_80_0
+Fast-conformerASR-NVIDIA/Train_kenLM/NeMo/scripts/asr_language_modeling/ngram_lm/output_model
