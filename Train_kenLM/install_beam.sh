@@ -16,7 +16,7 @@
 # Use this script to install KenLM, OpenSeq2Seq decoder, Flashlight decoder
 shopt -s expand_aliases
 
-NEMO_PATH=/home/pdnguyen/Format_repo/asr-training/Fastconformer/Train_kenLM/NeMo # Path to NeMo folder: /workspace/nemo if you use NeMo/Dockerfile
+NEMO_PATH=/home/team_voice/STT_pdnguyen/asr-training/Fastconformer/Train_kenLM/NeMo # Path to NeMo folder: /workspace/nemo if you use NeMo/Dockerfile
 if [ "$#" -eq 1 ]; then
   NEMO_PATH=$1
 fi

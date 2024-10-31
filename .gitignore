@@ -1,2 +1,5 @@
-Fast-conformerASR-NVIDIA/Train_kenLM/NeMo/boost_1_80_0
-Fast-conformerASR-NVIDIA/Train_kenLM/NeMo/scripts/asr_language_modeling/ngram_lm/output_model
+# Fastconformer
+Train_kenLM/NeMo/boost_1_80_0
+Train_kenLM/NeMo/boost_1_80_0.tar.bz2
+Train_kenLM/NeMo/scripts/asr_language_modeling/ngram_lm/output_model
+.env

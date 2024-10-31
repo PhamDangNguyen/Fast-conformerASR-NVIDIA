@@ -15,7 +15,12 @@ sh install_beam.sh
 ```
 cd /Fastconformer/Train_kenLM/NeMo/scripts/asr_language_modeling/ngram_lm
 ```
-In ``train_kenlm.sh`` file you have to fill:
+Before training, you need to downgrade the numpy version to 1.x to train the KenLM model.
+```
+pip uninstall numpy
+pip install numpy==1.26.4
+```
+After, in ``train_kenlm.sh`` file you have to fill:
 ```
 python train_kenlm.py \
     nemo_model_file=...  # Path to the .nemo ASR model \

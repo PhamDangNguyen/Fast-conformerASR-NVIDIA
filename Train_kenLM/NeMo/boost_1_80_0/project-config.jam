@@ -18,8 +18,11 @@ project : default-build <toolset>gcc ;
 import python ;
 if ! [ python.configured ]
 {
-    using python : 3.10 : "/home/pdnguyen/miniconda3/envs/install_beam" ;
+    using python : 3.10 : "/home/team_voice/miniconda3/envs/format_repo" ;
 }
+
+path-constant ICU_PATH : /usr ;
+
 
 # List of --with-<library> and --without-<library>
 # options. If left empty, all libraries will be built.

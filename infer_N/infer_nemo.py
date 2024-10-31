@@ -16,18 +16,13 @@ import json
 from tqdm.auto import tqdm
 import os
 
-
-
-
-
-
 model_nemo = "/home/pdnguyen/fast_confomer_finetun/finetune-fast-conformer/models_convert/asr_model.nemo"
 model = EncDecCTCModelBPE.restore_from(model_nemo, map_location=torch.device("cuda"))
 
 
 predicted_text = model.transcribe(
     paths2audio_files=[
-        '/home/pdnguyen/fast_confomer_finetun/finetune-fast-conformer/infer_N/fubong/20240222164216_giọng nữ miền Bắc 1/chunk_13_normalized.wav'
+        "wavs_test/output_segment_1.wav"
         ],
     batch_size=2  # batch size to run the inference with
 )

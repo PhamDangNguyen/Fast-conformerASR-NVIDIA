@@ -2,9 +2,9 @@
 ## Preprocessing data
 Access to the "asr-training/Fastconformer/notebooks_Preprocessing"
 ## Install library
- - ``cd Fast-conformerASR-NVIDIA``  
- - run in command ``pip install nemo_toolkit['all']`` to install Nemo framewor.
- -  run in command ``pip install -r requirements.txt`` to install the necessary libraries and dependencies.
+- Run ``conda create -n asr-task python=3.10`` to create a Conda environment
+- Next step,  ``cd Fastconformer`` and run ``pip install -r requirements.txt`` to install dependencies and libraries 
+
 ## Create 2 folder metadata_tokenizer and metadata_train
 ### metadata_tokenizer
 - metadata_tokenizer for task creat vocab and tokenizer object
@@ -38,7 +38,7 @@ không thể nào mở lòng với ai hai năm qua
 python /home/pdnguyen/fast_confomer_finetun/Fast-conformerASR-NVIDIA/process_asr_text_tokenizer.py \
         --data_file="/home/pdnguyen/fast_confomer_finetun/Fast-conformerASR-NVIDIA/metadata_tokenizer/teranscrip_all.json" \
         --data_root="/home/pdnguyen/fast_confomer_finetun/Fast-conformerASR-NVIDIA/dict_N" \
-        --vocab_size=1024 \
+        --vocab_size=10000 \
         --tokenizer="spe" \
         --no_lower_case \
         --spe_type="bpe" \
@@ -77,6 +77,4 @@ B3: Run training
 ```
 sh train.sh
 ```
-# How to train KenLM and integrate the language model (LM) with an ASR model for inference? 
-[For further details, please click on the link](Train_kenLM), good luck!
 

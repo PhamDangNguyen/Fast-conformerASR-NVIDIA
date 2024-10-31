@@ -51,14 +51,14 @@ model:
   skip_nan_grad: false
 
   train_ds:
-    manifest_filepath: Fast-conformerASR-NVIDIA/metadata_train/val.json
+    manifest_filepath: /home/team_voice/STT_pdnguyen/asr-training/Fastconformer/metadata_train/val.json
     sample_rate: ${model.sample_rate}
     batch_size: 1 # you may increase batch_size if your memory allows
     shuffle: true
-    num_workers: 32
+    num_workers: 2
     pin_memory: true
-    max_duration: 20 # it is set for LibriSpeech, you may need to update it for your dataset
-    min_duration: 0.3
+    max_duration: 24.9 # it is set for LibriSpeech, you may need to update it for your dataset
+    min_duration: 1.42
     # tarred datasets
     is_tarred: false
     tarred_audio_filepaths: null
@@ -68,27 +68,27 @@ model:
     bucketing_batch_size: null
 
   validation_ds:
-    manifest_filepath: Fast-conformerASR-NVIDIA/metadata_train/val.json
+    manifest_filepath: /home/team_voice/STT_pdnguyen/asr-training/Fastconformer/metadata_train/val.json
     sample_rate: ${model.sample_rate}
     batch_size: 1 # you may increase batch_size if your memory allows
     shuffle: false
     use_start_end_token: false
-    num_workers: 16
+    num_workers: 2
     pin_memory: true
 
   test_ds:
-    manifest_filepath: Fast-conformerASR-NVIDIA/metadata_train/val.json
+    manifest_filepath: /home/team_voice/STT_pdnguyen/asr-training/Fastconformer/metadata_train/val.json
     sample_rate: ${model.sample_rate}
     batch_size: 1 # you may increase batch_size if your memory allows
     shuffle: false
     use_start_end_token: false
-    num_workers: 16
+    num_workers: 2
     pin_memory: true
 
   # recommend vocab size of 128 or 256 when training on ~1k hr datasets and 1k vocab size on 10+k hr datasets
   # you may find more detail on how to train a tokenizer at: /scripts/tokenizers/process_asr_text_tokenizer.py
   tokenizer:
-    dir: Fast-conformerASR-NVIDIA/dict_N/tokenizer_spe_bpe_v1024 # path to directory which contains either tokenizer.model (bpe) or vocab.txt (wpe)
+    dir: /home/team_voice/STT_pdnguyen/asr-training/Fastconformer/dict_N/tokenizer_spe_bpe_v1024 # path to directory which contains either tokenizer.model (bpe) or vocab.txt (wpe)
     type: bpe  # Can be either bpe (SentencePiece tokenizer) or wpe (WordPiece tokenizer)
 
   preprocessor:
@@ -223,11 +223,11 @@ exp_manager:
     save_top_k: 40
     always_save_nemo: True # saves the checkpoints as nemo files instead of PTL checkpoints
 
-  resume_from_checkpoint: /mnt/driver/Back_up/training_fast_conformer/Fast-conformerASR-NVIDIA/nemo_experiments/FastConformer-CTC-BPE/checkpoints/FastConformer-CTC-BPE--val_wer=0.0458-epoch=78.ckpt
+  resume_from_checkpoint: null
   # The path to a checkpoint file to continue the training, restores the whole state including the epoch, step, LR schedulers, apex, etc.
   # you need to set these two to True to continue the training
-  resume_if_exists: true
-  resume_ignore_no_checkpoint: true
+  resume_if_exists: false
+  resume_ignore_no_checkpoint: false
 
   # You may use this section to create a W&B logger
   create_wandb_logger: false
